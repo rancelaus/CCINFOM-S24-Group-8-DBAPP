@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Asset`(
     `expiryDate` DATE NOT NULL,
     `purchaseDate` DATE NOT NULL,
     `a_status` ENUM('active', 'inactive', 'expired', 'damaged', 'lost', 'returned') NOT NULL,
-    `assetType` ENUM('H', 'S') NOT NULL,
+    `assetType` ENUM('h', 's') NOT NULL,
     PRIMARY KEY (`assetID`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `Asset`(
 DROP TABLE IF EXISTS `HardwareAsset`;
 CREATE TABLE IF NOT EXISTS `HardwareAsset`(
 	`H_assetID` INT UNSIGNED NOT NULL,
-    `type` VARCHAR(20) NOT NULL,
+    `h_type` VARCHAR(20) NOT NULL,
     `brand` VARCHAR(50) NOT NULL,
     `model` VARCHAR(50) NOT NULL,
     `serialNumber` VARCHAR(50) NOT NULL,
@@ -128,7 +128,7 @@ DROP TABLE IF EXISTS `Monitoring`;
 CREATE TABLE `Monitoring`(
 	`monitoringID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `assetID` INT UNSIGNED NOT NULL,
-    `monitoringType` ENUM('S', 'H') NOT NULL,
+    `monitoringType` ENUM('s', 'h') NOT NULL,
     `lastCheckedDate` DATE NOT NULL,
     `expiryDate` DATE NULL,
     `notes` VARCHAR(255) NULL,

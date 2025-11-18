@@ -17,16 +17,16 @@ INSERT INTO Employee (firstName, lastName, department, position, contactNumber, 
 ('Nadine', 'Santiago', 'Business Solutions', 'Business Systems Analyst', '09179012345', 'nadine.santiago@novalink.com');
 
 INSERT INTO Asset (expiryDate, purchaseDate, a_status, assetType) VALUES
-('2027-05-10', '2024-05-10', 'active', 'hardware'),
-('2026-11-22', '2023-11-22', 'active', 'software'),
-('2025-09-30', '2022-09-30', 'expired', 'hardware'),
-('2028-02-18', '2024-02-18', 'active', 'software'),
-('2024-12-01', '2021-12-01', 'damaged', 'hardware'),
-('2027-07-14', '2023-07-14', 'active', 'hardware'),
-('2025-04-05', '2022-04-05', 'returned', 'software'),
-('2029-01-10', '2024-01-10', 'active', 'software'),
-('2024-08-19', '2021-08-19', 'lost', 'hardware'),
-('2026-03-25', '2023-03-25', 'inactive', 'software');
+('2027-05-10', '2024-05-10', 'active', 'h'),
+('2026-11-22', '2023-11-22', 'active', 's'),
+('2025-09-30', '2022-09-30', 'expired', 'h'),
+('2028-02-18', '2024-02-18', 'active', 's'),
+('2024-12-01', '2021-12-01', 'damaged', 'h'),
+('2027-07-14', '2023-07-14', 'active', 'h'),
+('2025-04-05', '2022-04-05', 'returned', 's'),
+('2029-01-10', '2024-01-10', 'active', 's'),
+('2024-08-19', '2021-08-19', 'lost', 'h'),
+('2026-03-25', '2023-03-25', 'inactive', 's');
 
 INSERT INTO HardwareAsset (H_assetID, h_type, brand, model, serialNumber) VALUES
 (1, 'Laptop', 'Dell', 'Latitude 5440', 'SN-A1X45D9'),
@@ -36,7 +36,7 @@ INSERT INTO HardwareAsset (H_assetID, h_type, brand, model, serialNumber) VALUES
 (9, 'Keyboard', 'Logitech', 'MX Keys', 'SN-KBD114Z');
 
 INSERT INTO SoftwareLicense (S_assetID, softwareName, version, licenseKey, numOfUsers) VALUES
-(2, 'Microsoft Office 365', 'Business Standard', 'O365-92KD-XY33-HF21', 25),
+(2, 'Microsoft Office 365', 'Standard','O365-92KD-XY33-HF21', 25),
 (4, 'Adobe Photoshop', '2024', 'ADBP-88DH-223J-KL99', 2),
 (7, 'FortiClient VPN', '7.2', 'FCTVN-12KD-77HS-PLQ8', 50),
 (8, 'Windows 11 Pro', '23H2', 'WIN11P-91KD-QWEE-118Z', 1),
@@ -79,16 +79,16 @@ INSERT INTO Assigning (assignedBy, assetID, assignmentDate, as_status) VALUES
 (10, 10, '2024-04-25', 'active');     -- Inactive software license assigned
 
 INSERT INTO Monitoring (assetID, monitoringType, lastCheckedDate, expiryDate, notes) VALUES
-(1, 'hardware', '2024-05-15', NULL, 'Routine hardware inspection completed.'),
-(2, 'software', '2024-05-20', '2026-11-22', 'License verification OK.'),
-(3, 'hardware', '2024-06-01', NULL, 'Unit showing signs of wear; monitor closely.'),
-(4, 'software', '2024-06-10', '2028-02-18', 'Auto-renewal enabled.'),
-(5, 'hardware', '2024-06-18', NULL, 'Damaged unit; awaiting replacement approval.'),
-(6, 'hardware', '2024-07-02', NULL, 'Operating normally, no issues.'),
-(7, 'software', '2024-07-15', '2025-04-05', 'Marked as returned; license no longer in use.'),
-(8, 'software', '2024-07-22', '2029-01-10', 'Software functioning properly.'),
-(9, 'hardware', '2024-08-05', NULL, 'Item reported lost; monitoring archived.'),
-(10, 'software', '2024-08-18', '2026-03-25', 'Inactive license, last audit passed.');
+(1, 'h', '2024-05-15', NULL, 'Routine hardware inspection completed.'),
+(2, 's', '2024-05-20', '2026-11-22', 'License verification OK.'),
+(3, 'h', '2024-06-01', NULL, 'Unit showing signs of wear; monitor closely.'),
+(4, 's', '2024-06-10', '2028-02-18', 'Auto-renewal enabled.'),
+(5, 'h', '2024-06-18', NULL, 'Damaged unit; awaiting replacement approval.'),
+(6, 'h', '2024-07-02', NULL, 'Operating normally, no issues.'),
+(7, 's', '2024-07-15', '2025-04-05', 'Marked as returned; license no longer in use.'),
+(8, 's', '2024-07-22', '2029-01-10', 'Software functioning properly.'),
+(9, 'h', '2024-08-05', NULL, 'Item reported lost; monitoring archived.'),
+(10, 's', '2024-08-18', '2026-03-25', 'Inactive license, last audit passed.');
 
 INSERT INTO SoftwareMonitoring (S_monitoringID, depreciationStatus) VALUES
 (2, 'Good – License fully valid'),
