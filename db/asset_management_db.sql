@@ -45,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `HardwareAsset`(
     `brand` VARCHAR(50) NOT NULL,
     `model` VARCHAR(50) NOT NULL,
     `serialNumber` VARCHAR(50) NOT NULL,
-    --`assetType` ENUM('hardware', 'software') NOT NULL,
     PRIMARY KEY (`H_assetID`),
     INDEX `idx_hardware_assetID` (`H_assetID`),
     CONSTRAINT `idx_hardware_assetID`
@@ -116,7 +115,9 @@ CREATE TABLE `Assigning`(
     INDEX `idx_assigned_by_employee` (`assignedBy`),
     CONSTRAINT `idx_assigned_by_employee`
 		FOREIGN KEY (`assignedBy`) REFERENCES `Employee` (`employeeID`)
-        FOREIGN KEY (`assetID`) REFERENCES `Asset` (`assetID`)
+        ON DELETE RESTRICT ON UPDATE NO ACTION,
+    CONSTRAINT `idx_assigned_asset`
+		FOREIGN KEY (`assetID`) REFERENCES `Asset` (`assetID`)
         ON DELETE RESTRICT ON UPDATE NO ACTION
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
