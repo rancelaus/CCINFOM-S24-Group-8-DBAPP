@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `Employee`(
     `department` VARCHAR(50) NOT NULL,
     `position` VARCHAR(50) NOT NULL,
     `contactNumber` VARCHAR(20) NOT NULL,
-    `email` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,
     PRIMARY KEY (`employeeID`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `HardwareAsset`(
     `h_type` VARCHAR(20) NOT NULL,
     `brand` VARCHAR(50) NOT NULL,
     `model` VARCHAR(50) NOT NULL,
-    `serialNumber` VARCHAR(50) NOT NULL,
+    `serialNumber` VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (`H_assetID`),
     INDEX `idx_hardware_assetID` (`H_assetID`),
     CONSTRAINT `idx_hardware_assetID`
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `SoftwareLicense`(
 	`S_assetID` INT UNSIGNED NOT NULL,
     `softwareName` VARCHAR(20) NOT NULL,
     `version` VARCHAR(10) NOT NULL,
-    `licenseKey` VARCHAR(50) NOT NULL,
+    `licenseKey` VARCHAR(50) NOT NULL UNIQUE,
     `numOfUsers` INT UNSIGNED NOT NULL,
     PRIMARY KEY (`S_assetID`),
     INDEX `idx_software_license_assetID` (`S_assetID`),
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `Supplier`(
     `firstName` VARCHAR(50) NOT NULL,
     `lastName` VARCHAR(50) NOT NULL,
     `contactNumber` VARCHAR(20) NOT NULL,
-    `email` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,
     `zip` VARCHAR(10) NOT NULL,
     `street` VARCHAR(100) NOT NULL,
     `city` VARCHAR(50) NOT NULL,
@@ -248,6 +248,17 @@ CREATE TABLE `Restock`(
 		FOREIGN KEY (`restockedBy`) REFERENCES `Employee` (`employeeID`)
         ON DELETE RESTRICT ON UPDATE NO ACTION
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE Asset AUTO_INCREMENT = 1001;
+ALTER TABLE Inventory AUTO_INCREMENT = 2001;
+ALTER TABLE Employee AUTO_INCREMENT = 3001;
+ALTER TABLE Supplier AUTO_INCREMENT = 4001;
+
+ALTER TABLE Contract AUTO_INCREMENT = 5001;
+ALTER TABLE RenewalContract AUTO_INCREMENT = 6001;
+ALTER TABLE Restock AUTO_INCREMENT = 7001;
+ALTER TABLE Assigning AUTO_INCREMENT = 8001;
+ALTER TABLE Monitoring AUTO_INCREMENT = 9001;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
