@@ -22,6 +22,11 @@ public class Supplier {
     private String zip;
     
     //constructor
+    public Supplier()
+    {
+
+    }
+    
     public Supplier (int supplierID, String companyName, String firstName, String lastName, String contactNumber, String email, String street, String city, String zip)
     {
         this.supplierID = supplierID;
