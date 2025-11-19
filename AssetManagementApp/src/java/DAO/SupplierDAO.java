@@ -13,7 +13,6 @@ import Utilities.DBConnection;
 /**
  *
  * @author Kimberly Chong
- */
 public class SupplierDAO {
     //var
     private Connection conn;
@@ -24,3 +23,6 @@ public class SupplierDAO {
         conn = DBConnection.getConnection();
     }
 }
+*/
+
+// tinago ko muna cos it was giving build errors - rans :>
