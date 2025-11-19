@@ -71,9 +71,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <div class="container">
         <h1>Create Supplier Record</h1>
         <nav class="menu">
-            <a> Ayusin mo to hoy</a>
-            <form action="create_supplier.jsp">
-                Test:<input type="text" id="assetType">
+            <a> Fill-Up Form </a>
+            <form action="CreateSupplierServlet" method="post">
+                Company:            <input type="text" name="companyName" required /><br>
+                Name:                   <input type="text" name="firstName" placeholder="First Name" required />
+                                            <input type="text" name="lastName" placeholder="Last Name" required /><br>
+                Contact Number: <input type="text" name="contact" required /><br>
+                Email:                  <input type="email" name="email" required /><br>
+                Address:              <input type="text" name="zip" placeholder="ZIP Code" required />
+                                            <input type="text" name="street" placeholder="Street" required />
+                                            <input type="text" name="city" placeholder="City" required />
+                                            <br><br>
                 <input type="Submit" value="Submit">
                 <a href="supplier.html">🔙 Back</a>
                 <a href="index.html">🏠 Main Menu</a>
