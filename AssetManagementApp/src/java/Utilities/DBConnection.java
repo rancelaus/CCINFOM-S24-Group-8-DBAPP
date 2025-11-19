@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/asset_management_db";
     private static final String USER = "root"; // or your DB username
-    private static final String PASSWORD = "12345"; // or your DB password
+    private static final String PASSWORD = "Pass@1MySQL13"; // or your DB password
 
     public static Connection getConnection() throws SQLException {
         try {

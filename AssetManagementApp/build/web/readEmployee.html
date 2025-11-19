@@ -5,10 +5,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
 <head>
-    <title>Create a New Record</title>
+    <title>Read Employee Record</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Your exact original style block -->
     <style>
         /* 1. Global Styling & Font */
         body {
@@ -65,19 +66,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             background-color: #e6f0ff; 
             color: #1a73e8; 
         }
+
+        /* Custom input styling */
+        input[type="number"] {
+            padding: 10px;
+            width: 60%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #155dc1;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Read Inventory Record</h1>
+        <h1>Read Employee Record</h1>
+
         <nav class="menu">
-            <a> Ayusin mo to hoy</a>
-            <form action="read_inventory.jsp">
-                Test:<input type="text" id="assetType">
-                <input type="Submit" value="Submit">
-                <a href="inventory.html">🔙 Back</a>
-                <a href="index.html">🏠 Main Menu</a>
+            <a>Enter Employee ID to search.</a>
+
+            <form action="ReadEmployeeServlet" method="get">
+                <input type="number" name="employeeID" placeholder="Enter Employee ID" required><br>
+                <input type="submit" value="Search">
             </form>
+
+            <a href="employee.html">🔙 Back</a>
+            <a href="index.html">🏠 Main Menu</a>
         </nav>
     </div>
 </body>

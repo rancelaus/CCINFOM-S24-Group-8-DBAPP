@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
 <head>
-    <title>Create a New Record</title>
+    <title>Update an Assigned Transaction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -69,15 +69,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </head>
 <body>
     <div class="container">
-        <h1>Update Assigning Transaction</h1>
+        <h1>Update Assigned Transaction</h1>
         <nav class="menu">
-            <a> Ayusin mo to hoy</a>
-            <form action="update_assign.jsp">
-                Test:<input type="text" id="assetType">
-                <input type="Submit" value="Submit">
-                <a href="assigning.html">🔙 Back</a>
-                <a href="index.html">🏠 Main Menu</a>
+            <a>Enter the Assignment ID and the fields you want to update.</a>
+
+            <!-- SENDS TO SERVLET -->
+            <form action="UpdateAssignServlet" method="post">
+
+                <label>Assignment ID (required)</label><br>
+                <input type="number" name="assignmentID" required><br><br>
+
+                <h2>Fields to Update</h2>
+
+                <label>New Employee ID (optional)</label><br>
+                <input type="number" name="employeeID"><br>
+
+                <label>New Asset ID (optional)</label><br>
+                <input type="number" name="assetID"><br>
+
+                <label>New Assignment Date (optional)</label><br>
+                <input type="date" name="assignmentDate"><br>
+
+                <label>New Status (optional)</label><br>
+                <select name="status">
+                    <option value="">-- no change --</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select><br><br>
+
+                <input type="submit" value="Update Assignment">
             </form>
+
+            <a href="assigning.html">🔙 Back</a>
+            <a href="index.html">🏠 Main Menu</a>
         </nav>
     </div>
 </body>
