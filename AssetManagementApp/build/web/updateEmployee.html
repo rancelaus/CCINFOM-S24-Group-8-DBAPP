@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
 <head>
-    <title>Create a New Record</title>
+    <title>Update Employee Record</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Your exact same CSS -->
     <style>
-        /* 1. Global Styling & Font */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f7f7;
@@ -19,7 +15,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             color: #333;
         }
 
-        /* 2. Main Container Styling */
         .container {
             width: 80%;
             max-width: 600px;
@@ -31,7 +26,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             text-align: center;
         }
 
-        /* 3. Title Styling */
         h1 {
             color: #1a73e8;
             font-size: 1.8em;
@@ -40,7 +34,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             padding-bottom: 10px;
         }
         
-        /* 4. Subheader Styling */
         h2 {
             font-size: 1.3em; 
             font-weight: 500; 
@@ -49,7 +42,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             margin-bottom: 15px; 
         }
 
-        /* 5. Link Styling */
         .menu a {
             display: block; 
             text-decoration: none;
@@ -60,24 +52,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             transition: background-color 0.2s, color 0.2s; 
         }
 
-        /* 6. Hover Effect */
         .menu a:hover {
             background-color: #e6f0ff; 
             color: #1a73e8; 
         }
+
+        input {
+            margin: 6px 0;
+            padding: 8px;
+            width: 80%;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Update Employee Record</h1>
+
         <nav class="menu">
-            <a> Ayusin mo to hoy</a>
-            <form action="update_employee.jsp">
-                Test:<input type="text" id="assetType">
-                <input type="Submit" value="Submit">
+            <a>Enter the Employee ID and the updated information.</a>
+
+            <form action="UpdateEmployeeServlet" method="post">
+
+                <!-- EMPLOYEE ID REQUIRED -->
+                Employee ID:<br>
+                <input type="number" name="employeeID" required><br><br>
+
+                <h2>Updated Information</h2>
+
+                First Name:                <input type="text" name="firstName" maxlength="50"><br>
+
+                Last Name:                <input type="text" name="lastName" maxlength="50"><br>
+
+                Department:                <input type="text" name="department" maxlength="50"><br>
+
+                Position:                <input type="text" name="position" maxlength="50"><br>
+
+                Contact Number:                <input type="text" name="contactNumber" maxlength="20"><br>
+
+                Email:                <input type="email" name="email" maxlength="100"><br><br>
+                <input type="submit" value="Update">
+                
                 <a href="employee.html">🔙 Back</a>
                 <a href="index.html">🏠 Main Menu</a>
             </form>
+
         </nav>
     </div>
 </body>

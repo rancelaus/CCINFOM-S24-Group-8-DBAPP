@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
 <head>
-    <title>Create a New Record</title>
+    <title>Read an Assigned Transaction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -69,15 +69,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </head>
 <body>
     <div class="container">
-        <h1>Read Assigning Transaction</h1>
+        <h1>Read Assigned Transaction</h1>
+
         <nav class="menu">
-            <a> Ayusin mo to hoy</a>
-            <form action="read_assign.jsp">
-                Test:<input type="text" id="assetType">
-                <input type="Submit" value="Submit">
-                <a href="assigning.html">🔙 Back</a>
-                <a href="index.html">🏠 Main Menu</a>
+            <a>Enter Assignment ID to search.</a>
+
+            <!-- FORM SENDS TO SERVLET -->
+            <form action="ReadAssignServlet" method="post">
+
+                <label>Assignment ID:</label><br>
+                <input type="number" name="assignmentID" required><br><br>
+
+                <input type="submit" value="Search">
             </form>
+
+            <a href="assigning.html">🔙 Back</a>
+            <a href="index.html">🏠 Main Menu</a>
         </nav>
     </div>
 </body>

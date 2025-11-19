@@ -3,17 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/index.html</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/inventory.html</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/createInventory.html</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/create_inventory.jsp</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/src/java/DAO/Inventory.java</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/readInventory.html</file>
-            <file>file:/C:/Users/ranseeeee/Downloads/db%20app/CCINFOM-S24-8-DBAPP/AssetManagementApp/web/updateInventory.html</file>
-=======
-            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/nbproject/build-impl.xml</file>
->>>>>>> 53b0b18a39ea1b8c32305c138a3ed4dcd99bf748
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/createEmployee.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/createSupplier.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/DAO/SupplierDAO.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/CreateSupplierServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/CreateEmployeeServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Utilities/DBConnection.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Utilities/DBTest.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/readEmployee.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/ReadEmployeeServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/updateEmployee.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/UpdateEmployeeServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/createAssign.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/CreateAssignServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/assigning.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/readAssign.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/ReadAssignServlet.java</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/web/updateAssign.html</file>
+            <file>file:/C:/Users/kheig/Documents/MySQL/DBApp/CCINFOM-S24-Group-8-DBAPP/AssetManagementApp/src/java/Controller/UpdateAssignServlet.java</file>
         </group>
     </open-files>
 </project-private>
