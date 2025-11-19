@@ -27,9 +27,9 @@ public class Supplier {
 
     }
     
-    public Supplier (int supplierID, String companyName, String firstName, String lastName, String contactNumber, String email, String street, String city, String zip)
+    // constructor without id
+    public Supplier (String companyName, String firstName, String lastName, String contactNumber, String email, String street, String city, String zip)
     {
-        this.supplierID = supplierID;
         this.companyName = companyName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +38,13 @@ public class Supplier {
         this.street = street;
         this.city = city;
         this.zip = zip;
+    }
+
+    // constructor with id
+    public Supplier (int supplierID, String companyName, String firstName, String lastName, String contactNumber, String email, String street, String city, String zip)
+    {
+        this(companyName, firstName, lastName, contactNumber, email, street, city, zip);
+        this.supplierID = supplierID;
     }
     
     //getters/setters

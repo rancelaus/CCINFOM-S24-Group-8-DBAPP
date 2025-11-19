@@ -38,12 +38,16 @@ public class SupplierDAO {
      * @param supplier
      * @return
      */
-    public boolean insertSupplier(Supplier supplier)
+    public boolean createSupplier(Supplier supplier)
     {
-        String sql = "INSERT INTO Supplier (companyName, firstName, lastName, contactNumber, email, zip, street, city) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        if (conn == null) {
+            System.err.println("SupplierDAO.createSupplier: DB connection is null");
+            return false;
+        }
 
-        try(PreparedStatement stm = conn.prepareStatement(sql)) 
-        {
+        String sql = "INSERT INTO Supplier (companyName, firstName, lastName, contactNumber, email, zip, street, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stm.setString(1, supplier.getCompanyName());
             stm.setString(2, supplier.getFirstName());
             stm.setString(3, supplier.getLastName());
@@ -53,7 +57,18 @@ public class SupplierDAO {
             stm.setString(7, supplier.getStreet());
             stm.setString(8, supplier.getCity());
 
-            return stm.executeUpdate() > 0;
+            int affected = stm.executeUpdate();
+            if (affected > 0) {
+                try (ResultSet keys = stm.getGeneratedKeys()) {
+                    if (keys.next()) {
+                        supplier.setSupplierID(keys.getInt(1));
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                return true;
+            }
+            return false;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -105,33 +120,55 @@ public class SupplierDAO {
     public List<Supplier> getAllSuppliers()
     {
         List<Supplier> list = new ArrayList<>();
-        String sql = "SELECT * FROM Supplier";
 
-        try(Statement stm = conn.createStatement()) 
-        {
-            ResultSet rs = stm.executeQuery(sql);
+        if (conn == null) {
+            System.err.println("SupplierDAO.getAllSuppliers: DB connection is null");
+            return list;
+        }
 
-            while(rs.next())
-            {
-                Supplier supplier = new Supplier();
+        try {
+            try {
+                System.err.println("SupplierDAO.getAllSuppliers - DB URL: " + conn.getMetaData().getURL() + ", User: " + conn.getMetaData().getUserName());
+            } catch (SQLException ignored) {}
 
-                supplier.setSupplierID(rs.getInt("supplierID"));
-                supplier.setCompanyName(rs.getString("companyName"));
-                supplier.setFirstName(rs.getString("firstName"));
-                supplier.setLastName(rs.getString("lastName"));
-                supplier.setContactNumber(rs.getString("contactNumber"));
-                supplier.setEmail(rs.getString("email"));
-                supplier.setStreet(rs.getString("street"));
-                supplier.setCity(rs.getString("city"));
-                supplier.setZIP(rs.getString("zip"));
+            String sql = "SELECT * FROM Supplier";
+            int count = 0;
+            try (Statement stm = conn.createStatement(); ResultSet rs = stm.executeQuery(sql)) {
+                while (rs.next()) {
+                    Supplier supplier = new Supplier();
+                    supplier.setSupplierID(rs.getInt("supplierID"));
+                    supplier.setCompanyName(rs.getString("companyName"));
+                    supplier.setFirstName(rs.getString("firstName"));
+                    supplier.setLastName(rs.getString("lastName"));
+                    supplier.setContactNumber(rs.getString("contactNumber"));
+                    supplier.setEmail(rs.getString("email"));
+                    supplier.setStreet(rs.getString("street"));
+                    supplier.setCity(rs.getString("city"));
+                    supplier.setZIP(rs.getString("zip"));
 
-                list.add(supplier);
+                    list.add(supplier);
+                    count++;
+                }
             }
+            System.err.println("SupplierDAO.getAllSuppliers: rows returned=" + count);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return list;
+    }
+
+    /**
+     * Return the JDBC URL used by this DAO, or null if not available.
+     */
+    public String getConnectionUrl() {
+        if (conn == null) return null;
+        try {
+            return conn.getMetaData().getURL();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public boolean updateSupplier(Supplier supplier)
